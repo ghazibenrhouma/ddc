@@ -1,0 +1,20 @@
+ALGORITHM checkpoint1
+VAR
+    i,nb_c,nb_v,nb_e,nb_w : INTEGER;
+    str : STRING;
+BEGIN
+    Write(str);
+    FOR i FROM 1 TO str.length -1 STEP 1  DO
+    nb_c:=nb_c+1;
+        IF (str[i]=[o,i,y,e,a,u]) THEN
+            nb_v := nb_v+1;
+        END_IF
+        IF (str[i]=" ") THEN
+            nb_e:=nb_e+1;
+        END_IF
+    END_FOR
+    Write(nb_c);
+    Write(nb_e);
+    Write(nb_v);
+    write(nb_w,"nb_e + 1");
+END
