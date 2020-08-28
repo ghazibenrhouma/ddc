@@ -1,0 +1,35 @@
+ALGORITHM overlapping_elements_method2
+VAR
+   tab1, tab2,tab3 : ARRAY_OF INTEGER ;
+   sum ,i,j : INTEGER := 0;
+  htab : HASH_TABLE<INTEGER,INTEGER>
+  count : INTEGER:=1;
+BEGIN
+    FOR i FROM 0 TO tab1.length-1 DO
+     IF (htab.lookup(tab1[i])=true) THEN
+         count:=htab.get(tab1[i])+1;
+         htab.insert(tab1[i], count);
+     ELSE
+     count:=1;
+     htab.insert(tab1[i], count);
+     END_IF
+    END_FOR
+
+    FOR j FROM 0 TO tab2.length-1 DO
+     IF (htab.lookup(tab2[j])=true) THEN
+         count:=htab.get(tab2[j])+1;
+         htab.insert(tab2[j], count);
+     ELSE
+     count:=1;
+     htab.insert(tab2[j], count);
+     END_IF
+    END_FOR
+
+    tab3:=htab.keys();
+    FOR i FROM 0 TO tab3.length()-1 DO
+        IF (htab.get(tab3[i])>1) THEN
+           sum:=sum+(tab3[i]*htab.get(tab3[i]));
+        END_IF
+    END_FOR
+ write('Sum of overlapping elements: ',sum);
+END 
